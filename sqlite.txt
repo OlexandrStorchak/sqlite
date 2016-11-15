@@ -1,1 +1,83 @@
-test
+1)Выбрать всех водителей, возраст которых > 25 лет
+Select *
+from people
+where (2016-year)>25
+
+2)Выбрать всех водителей, возраст которых > 25 лет и < 45
+Select *
+from people
+where (2016-year)>25 and (2016-year)<45
+
+3)Выбрать квартиры, которые расположены на 1 этаже
+Select *
+from flats
+where floor=1
+
+4)Выбрать квартиры, в которых больше 2 комнат
+Select *
+from flats
+where rooms>2
+
+5)Выбрать машины, длина которых больше 4 метров
+Select *
+from cars
+where lenght>4 
+
+6)Выбрать машины, который были произведены после 2008 года
+Select *
+from cars
+where year_created>2008
+
+7)Посчитать количество водителей в базе
+Select count (*)
+from people
+
+8)Узнать возраст самого молодого водителя
+Select min(2016-year)
+from people
+
+
+9)Узнать количество трехкомнатных квартир в базе
+Select count (*)
+from flats
+where rooms=3
+
+10)Узнать средний возраст водителей (функция AVG)
+Select avg (2016-year)
+from people
+
+11)Узнать суммарную ширину всех машин (функция SUM)
+Select sum (width)
+from cars
+
+12)Выбрать водителей имена которых начинается на букву “А”
+Select *
+from people
+where name like ("A%")
+
+13)Выбрать водителей которые имеют букву “T” в фамилии
+Select *
+from people
+where soname like ("%t%")
+
+14)Выбрать машины, водители которых живут в трехкомнатных квартирах
+Select *
+from cars
+where cars.people_id in (select flats.id from flats where rooms=3)
+
+15)Выбрать водителей у которых больше чем одна машина
+???
+
+16)Выбрать квартиры в которых живет водители, которые родились после 2000 года
+Select *
+from flats
+join people on people.flat_id = flats.id
+where people.year>=2000
+
+17)Выбрать квартиры в которых живут водители, которые ездят на машинах, которые были выпущены после 2012 года!!!!
+Select *
+from flats
+join people on people.flat_id = flats.id
+join cars on cars.people_id = people.id
+where cars.year_created>2012
+
